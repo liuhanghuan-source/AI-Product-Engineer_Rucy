@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Terminal, Database, ArrowRight, Activity, MapPin, Mail, Briefcase } from 'lucide-react';
+import { Terminal, Database, ArrowRight, Activity, MapPin, Mail, Briefcase, Square, Cpu, Code, Network, Glasses, Settings } from 'lucide-react';
 
 export default function HeroSection() {
   return (
@@ -79,7 +79,7 @@ export default function HeroSection() {
           transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="relative perspective-1000"
         >
-          <div className="relative bg-white/60 backdrop-blur-xl border border-zinc-200/50 rounded-2xl shadow-2xl overflow-hidden transform-gpu rotate-y-[-5deg] rotate-x-[5deg]">
+          <div className="relative bg-white/60 backdrop-blur-xl border border-zinc-200/50 rounded-2xl shadow-2xl overflow-hidden">
             {/* Window Header */}
             <div className="h-10 bg-zinc-100/50 border-b border-zinc-200/50 flex items-center px-4 gap-2">
               <div className="flex gap-1.5">
@@ -87,76 +87,82 @@ export default function HeroSection() {
                 <div className="w-2.5 h-2.5 rounded-full bg-amber-400"></div>
                 <div className="w-2.5 h-2.5 rounded-full bg-green-400"></div>
               </div>
-              <div className="mx-auto flex items-center gap-2 text-xs text-zinc-400 font-mono bg-white/50 px-2 py-1 rounded">
-                <Terminal size={12} />
-                <span>profile_config.json</span>
-              </div>
             </div>
             
             {/* Window Content - Personal Profile */}
             <div className="p-6">
-              <div className="flex flex-col gap-5 relative">
-                {/* Header: Name & Role with large avatar */}
-                <div className="flex items-start gap-4 pb-4 border-b border-zinc-100">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-2">
-                      <h2 className="text-xl font-bold text-zinc-900">Rucy</h2>
-                      <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-brand-blue to-cyan-400 flex items-center justify-center text-white text-sm font-bold shadow-inner flex-shrink-0">
-                        <Briefcase size={14} />
+              <div className="flex flex-col gap-5">
+                {/* Header: Name & Role + Address, avatar centered across both */}
+                <div className="flex items-center gap-5 pb-4 border-b border-zinc-100">
+                  <div className="flex-1 min-w-0 space-y-4">
+                    <div>
+                      <h2 className="text-2xl font-bold text-zinc-900 mb-1.5">Rucy</h2>
+                      <div className="text-sm text-brand-blue font-medium flex items-center gap-2">
+                        <Cpu size={16} className="text-brand-blue" />
+                        <span>AI Product Engineer</span>
                       </div>
                     </div>
-                    <div className="text-sm text-brand-blue font-medium ml-11">
-                      AI Product Engineer
+                    <div className="space-y-2.5">
+                      <div className="flex items-center gap-3 text-zinc-500 hover:text-zinc-900 transition-colors group">
+                        <div className="w-8 h-8 rounded bg-zinc-100 flex items-center justify-center text-zinc-400">
+                          <MapPin size={16} />
+                        </div>
+                        <span className="text-sm font-medium">杭州, 中国</span>
+                      </div>
+                      <div className="flex items-center gap-3 text-zinc-500 hover:text-zinc-900 transition-colors group">
+                        <div className="w-8 h-8 rounded bg-zinc-100 flex items-center justify-center text-zinc-400">
+                          <Mail size={16} />
+                        </div>
+                        <a href="mailto:liuhanghuan@qq.com" className="text-sm font-medium hover:text-brand-blue transition-colors">Liuhanghuan@qq.com</a>
+                      </div>
                     </div>
                   </div>
-                  {/* Large Avatar - Positioned in top-right corner */}
-                  <div className="absolute top-0 right-0 -mt-8 -mr-2">
-                    <div className="w-24 h-24 rounded-full bg-gradient-to-tr from-brand-blue to-cyan-400 flex items-center justify-center text-white text-3xl font-bold shadow-inner border-4 border-white">
-                      R
-                    </div>
+                  {/* Large Avatar - centered across Name & Address */}
+                  <div className="flex-shrink-0 w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-gradient-to-tr from-brand-blue to-cyan-400 flex items-center justify-center text-white text-5xl sm:text-6xl font-bold shadow-inner border-4 border-white">
+                    R
                   </div>
                 </div>
 
-                {/* Body: Info List */}
-                <div className="flex flex-col gap-3">
-                  <motion.div 
-                    whileHover={{ x: 4 }}
-                    className="flex items-center gap-3 text-sm text-zinc-600 p-2 hover:bg-zinc-50 rounded-md transition-colors"
-                  >
-                    <div className="w-8 h-8 rounded bg-zinc-100 flex items-center justify-center text-zinc-400">
-                      <MapPin size={16} />
-                    </div>
-                    <span>杭州, 中国</span>
-                  </motion.div>
+                {/* Body: About Me & Focus Areas */}
+                <div className="pt-6 space-y-4">
+                  {/* About Me Section */}
+                  <div>
+                    <h3 className="text-xs font-bold text-zinc-400 tracking-[0.2em] uppercase mb-3">About Me</h3>
+                    <p className="text-sm text-zinc-700 leading-relaxed font-medium">
+                      专注于 <span className="text-brand-blue">AI 应用</span>、<span className="text-emerald-600">智能体系统</span>开发，具备产品规划、技术方案设计以及项目落地经验，致力于探索 AI 与各项工作相结合的新型产品体验。
+                    </p>
+                  </div>
 
-                  <motion.div 
-                    whileHover={{ x: 4 }}
-                    className="flex items-center gap-3 text-sm text-zinc-600 p-2 hover:bg-zinc-50 rounded-md transition-colors"
-                  >
-                    <div className="w-8 h-8 rounded bg-zinc-100 flex items-center justify-center text-zinc-400">
-                      <Mail size={16} />
+                  {/* Focus Areas */}
+                  <div>
+                    <h3 className="text-xs font-bold text-zinc-400 tracking-[0.2em] uppercase mb-3">Focus Areas</h3>
+                    <div className="grid grid-cols-2 gap-3">
+                      <div className="flex items-center gap-3 p-3 rounded-xl bg-white/40 border border-white/60">
+                        <span className="flex-shrink-0 w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-blue-600">
+                          <Code size={16} />
+                        </span>
+                        <span className="text-zinc-700 font-semibold text-sm">AI 应用开发</span>
+                      </div>
+                      <div className="flex items-center gap-3 p-3 rounded-xl bg-white/40 border border-white/60">
+                        <span className="flex-shrink-0 w-8 h-8 rounded-lg bg-purple-100 flex items-center justify-center text-purple-600">
+                          <Network size={16} />
+                        </span>
+                        <span className="text-zinc-700 font-semibold text-sm">Agent 智能体系统</span>
+                      </div>
+                      <div className="flex items-center gap-3 p-3 rounded-xl bg-white/40 border border-white/60">
+                        <span className="flex-shrink-0 w-8 h-8 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-600">
+                          <Glasses size={16} />
+                        </span>
+                        <span className="text-zinc-700 font-semibold text-sm">VR 交互体验</span>
+                      </div>
+                      <div className="flex items-center gap-3 p-3 rounded-xl bg-white/40 border border-white/60">
+                        <span className="flex-shrink-0 w-8 h-8 rounded-lg bg-amber-100 flex items-center justify-center text-amber-600">
+                          <Settings size={16} />
+                        </span>
+                        <span className="text-zinc-700 font-semibold text-sm">自动化工程</span>
+                      </div>
                     </div>
-                    <a href="mailto:liuhanghuan@qq.com" className="hover:text-brand-blue transition-colors">Liuhanghuan@qq.com</a>
-                  </motion.div>
-
-                  <motion.div 
-                    whileHover={{ x: 4 }}
-                    className="flex items-start gap-3 text-sm text-zinc-600 p-2 hover:bg-zinc-50 rounded-md transition-colors"
-                  >
-                    <div className="w-8 h-8 rounded bg-zinc-100 flex items-center justify-center text-zinc-400 flex-shrink-0">
-                      <Database size={16} />
-                    </div>
-                    <div className="leading-relaxed">
-                      <p className="mb-2">专注于 AI 应用、智能体系统开发，具备产品规划、技术方案设计以及项目落地经验，致力于探索 AI 与各项工作相结合的新型产品体验。</p>
-                      <p className="font-medium text-zinc-700">关注方向：</p>
-                      <ul className="list-disc list-inside text-xs text-zinc-500 mt-1 space-y-0.5">
-                        <li>AI 应用开发</li>
-                        <li>Agent智能体系统</li>
-                        <li>VR交互体验</li>
-                        <li>自动化工程</li>
-                      </ul>
-                    </div>
-                  </motion.div>
+                  </div>
                 </div>
                 
                 {/* Footer: Tech Stack Tags */}
