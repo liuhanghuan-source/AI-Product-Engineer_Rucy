@@ -1,3 +1,12 @@
+# Deploy to GitHub Pages
+
+This workflow will build your project and deploy it to GitHub Pages.
+
+For more information, see:
+- https://github.com/actions/deploy-pages
+- https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
+
+```yaml
 name: Deploy to GitHub Pages
 
 on:
@@ -47,3 +56,17 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+```
+
+This workflow:
+1. Builds your application
+2. Uploads the build artifacts
+3. Deploys them to GitHub Pages using the official GitHub Pages deployment action
+
+Make sure your `vite.config.ts` has the correct base path:
+```typescript
+export default defineConfig({
+  base: '/AI-Product-Engineer_Rucy/',
+  // ... other config
+})
+```
