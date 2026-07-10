@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Terminal, Database, ArrowRight, Activity, MapPin, Mail, Github, Linkedin, Briefcase } from 'lucide-react';
+import { Terminal, Database, ArrowRight, Activity, MapPin, Mail, Briefcase } from 'lucide-react';
 
 export default function HeroSection() {
   return (
@@ -95,16 +95,24 @@ export default function HeroSection() {
             
             {/* Window Content - Personal Profile */}
             <div className="p-6">
-              <div className="flex flex-col gap-5">
-                {/* Header: Name & Role */}
-                <div className="flex items-center gap-4 pb-4 border-b border-zinc-100">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-tr from-brand-blue to-cyan-400 flex items-center justify-center text-white text-2xl font-bold shadow-inner">
-                    R
+              <div className="flex flex-col gap-5 relative">
+                {/* Header: Name & Role with large avatar */}
+                <div className="flex items-start gap-4 pb-4 border-b border-zinc-100">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3 mb-2">
+                      <h2 className="text-xl font-bold text-zinc-900">Rucy</h2>
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-brand-blue to-cyan-400 flex items-center justify-center text-white text-sm font-bold shadow-inner flex-shrink-0">
+                        <Briefcase size={14} />
+                      </div>
+                    </div>
+                    <div className="text-sm text-brand-blue font-medium ml-11">
+                      AI Product Engineer
+                    </div>
                   </div>
-                  <div>
-                    <h2 className="text-xl font-bold text-zinc-900">Rucy</h2>
-                    <div className="text-sm text-brand-blue font-medium flex items-center gap-1.5 mt-0.5">
-                      <Briefcase size={14} /> AI Product Engineer
+                  {/* Large Avatar - Positioned in top-right corner */}
+                  <div className="absolute top-0 right-0 -mt-8 -mr-2">
+                    <div className="w-24 h-24 rounded-full bg-gradient-to-tr from-brand-blue to-cyan-400 flex items-center justify-center text-white text-3xl font-bold shadow-inner border-4 border-white">
+                      R
                     </div>
                   </div>
                 </div>
@@ -128,17 +136,26 @@ export default function HeroSection() {
                     <div className="w-8 h-8 rounded bg-zinc-100 flex items-center justify-center text-zinc-400">
                       <Mail size={16} />
                     </div>
-                    <a href="mailto:rucy.liu@example.com" className="hover:text-brand-blue transition-colors">liuhanghuan@qq.com </a>
+                    <a href="mailto:liuhanghuan@qq.com" className="hover:text-brand-blue transition-colors">Liuhanghuan@qq.com</a>
                   </motion.div>
 
                   <motion.div 
                     whileHover={{ x: 4 }}
-                    className="flex items-center gap-3 text-sm text-zinc-600 p-2 hover:bg-zinc-50 rounded-md transition-colors"
+                    className="flex items-start gap-3 text-sm text-zinc-600 p-2 hover:bg-zinc-50 rounded-md transition-colors"
                   >
-                    <div className="w-8 h-8 rounded bg-zinc-100 flex items-center justify-center text-zinc-400">
-                      <Github size={16} />
+                    <div className="w-8 h-8 rounded bg-zinc-100 flex items-center justify-center text-zinc-400 flex-shrink-0">
+                      <Database size={16} />
                     </div>
-                    <a href="#" className="hover:text-brand-blue transition-colors"> 23岁 </a>
+                    <div className="leading-relaxed">
+                      <p className="mb-2">专注于 AI 应用、智能体系统开发，具备产品规划、技术方案设计以及项目落地经验，致力于探索 AI 与各项工作相结合的新型产品体验。</p>
+                      <p className="font-medium text-zinc-700">关注方向：</p>
+                      <ul className="list-disc list-inside text-xs text-zinc-500 mt-1 space-y-0.5">
+                        <li>AI 应用开发</li>
+                        <li>Agent智能体系统</li>
+                        <li>VR交互体验</li>
+                        <li>自动化工程</li>
+                      </ul>
+                    </div>
                   </motion.div>
                 </div>
                 
