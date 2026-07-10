@@ -118,9 +118,11 @@ export default function HeroSection() {
                     </div>
                   </div>
                   {/* Large Avatar - centered across Name & Address */}
-                  <div className="flex-shrink-0 w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-gradient-to-tr from-brand-blue to-cyan-400 flex items-center justify-center text-white text-5xl sm:text-6xl font-bold shadow-inner border-4 border-white">
-                    R
-                  </div>
+                  <img
+                    src={`${import.meta.env.BASE_URL}avatar.png`}
+                    alt="Rucy"
+                    className="flex-shrink-0 w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover border-4 border-white shadow-inner"
+                  />
                 </div>
 
                 {/* Body: About Me & Focus Areas */}
