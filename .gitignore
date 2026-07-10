@@ -48,3 +48,6 @@ temp/
 
 # TRAE specific files (optional)
 .trae/
+
+# Private documentation
+private-docs/
