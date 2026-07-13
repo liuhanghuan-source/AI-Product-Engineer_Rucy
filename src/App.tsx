@@ -2,7 +2,6 @@ import HeroSection from './components/HeroSection';
 import ProfileSection from './components/ProfileSection';
 import WorkflowLab from './components/PhilosophySection';
 import ExperienceSection from './components/ExperienceSection';
-import CareerSection from './components/CareerSection';
 import FutureVisionSection from './components/FutureVisionSection';
 import Navigation from './components/Navigation';
 import { ReactLenis } from '@studio-freight/react-lenis';
@@ -16,7 +15,6 @@ function App() {
         <ProfileSection />
         <WorkflowLab />
         <ExperienceSection />
-        <CareerSection />
         <FutureVisionSection />
       </main>
     </ReactLenis>
