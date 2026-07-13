@@ -4,7 +4,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/AI-Product-Engineer_Rucy/',
+  base: '/',
   build: {
     sourcemap: 'hidden',
   },
