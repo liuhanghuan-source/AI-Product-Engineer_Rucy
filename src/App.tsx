@@ -1,4 +1,5 @@
 import HeroSection from './components/HeroSection';
+import ProfileSection from './components/ProfileSection';
 import WorkflowLab from './components/PhilosophySection';
 import ExperienceSection from './components/ExperienceSection';
 import CareerSection from './components/CareerSection';
@@ -12,6 +13,7 @@ function App() {
       <main className="font-sans antialiased text-zinc-900 bg-[#FAFAFA] selection:bg-brand-blue selection:text-white">
         <Navigation />
         <HeroSection />
+        <ProfileSection />
         <WorkflowLab />
         <ExperienceSection />
         <CareerSection />
