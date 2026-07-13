@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Activity } from 'lucide-react';
+import heroVideo from '../assets/hero.mp4';
+import heroPoster from '../assets/hero-poster.jpg';
 
 export default function HeroSection() {
   return (
@@ -10,11 +12,11 @@ export default function HeroSection() {
         muted
         loop
         playsInline
-        poster={`${import.meta.env.BASE_URL}hero-poster.jpg`}
+        poster={heroPoster}
         className="absolute inset-0 z-0 h-full w-full object-cover"
         aria-hidden="true"
       >
-        <source src={`${import.meta.env.BASE_URL}hero.mp4`} type="video/mp4" />
+        <source src={heroVideo} type="video/mp4" />
       </video>
 
       <div className="relative z-10 container mx-auto px-6">
