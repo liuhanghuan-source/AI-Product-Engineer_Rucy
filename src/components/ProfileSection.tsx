@@ -20,7 +20,7 @@ const careerSteps = [
     type: 'MAIN_PROCESS',
     title: 'AI Product Engineer',
     subtitle: '核心系统研发与架构设计',
-    period: '2025.03 – 至今',
+    period: '2025.06 – 至今',
     description: '负责核心应用开发、低代码平台搭建与自动化工作流设计，同时熟悉并主导了整体研发项目管理，完成从“写代码”到“造系统”的跨越。',
     tags: ['App Dev', 'Low-Code', 'Workflow', 'Project Management'],
     icon: Cpu,
