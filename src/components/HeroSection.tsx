@@ -1,27 +1,11 @@
-import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Activity, Pause, Play } from 'lucide-react';
+import { ArrowRight, Activity } from 'lucide-react';
 
 export default function HeroSection() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [isPlaying, setIsPlaying] = useState(true);
-
-  const toggleVideo = () => {
-    const video = videoRef.current;
-    if (!video) return;
-    if (video.paused) {
-      video.play().then(() => setIsPlaying(true)).catch(() => {});
-    } else {
-      video.pause();
-      setIsPlaying(false);
-    }
-  };
-
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-950 pt-20">
       {/* Video Background */}
       <video
-        ref={videoRef}
         autoPlay
         muted
         loop
@@ -95,17 +79,6 @@ export default function HeroSection() {
           </motion.div>
         </div>
       </div>
-
-      {/* Video Pause / Play control */}
-      <button
-        type="button"
-        onClick={toggleVideo}
-        aria-label={isPlaying ? '暂停视频背景' : '播放视频背景'}
-        title={isPlaying ? '暂停视频背景' : '播放视频背景'}
-        className="absolute bottom-6 right-6 z-20 flex items-center justify-center w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition-colors focus:outline-none focus:ring-2 focus:ring-white/40"
-      >
-        {isPlaying ? <Pause size={16} /> : <Play size={16} />}
-      </button>
     </section>
   );
 }
