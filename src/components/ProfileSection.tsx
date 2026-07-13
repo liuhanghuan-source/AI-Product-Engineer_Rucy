@@ -7,7 +7,7 @@ const careerSteps = [
     type: 'MODULE_INIT',
     title: 'Unity 开发实习',
     subtitle: '游戏开发与智能体探索',
-    period: '2024.09 – 2025.03',
+    period: '2024.09 – 2025.05',
     description: '深入游戏引擎底层机制，并开始熟悉 AI 算法在游戏 NPC 与环境交互中的初步应用。',
     tags: ['Game Engine', 'Game AI', 'Scripting'],
     icon: Gamepad2,
