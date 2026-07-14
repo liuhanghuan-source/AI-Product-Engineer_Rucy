@@ -8,21 +8,52 @@ export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
 
+  // 在 video 元素“创建那一刻”就同步设好 muted 并立即尝试播放，
+  // 早于浏览器对自动播放策略的判定（React 的 <video muted> 不会把 muted 写进初始 attribute，需手动补）。
+  const setVideoRef = (el: HTMLVideoElement | null) => {
+    videoRef.current = el;
+    if (!el) return;
+    el.muted = true;
+    el.defaultMuted = true;
+    el.setAttribute('muted', '');
+    const p = el.play();
+    if (p && typeof p.catch === 'function') p.catch(() => {});
+  };
+
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
-    // iOS Safari 需要 muted 既作为 attribute 也作为 property 才真正允许自动播放
     video.muted = true;
     video.setAttribute('muted', '');
     const tryPlay = () => {
       video.play().then(() => setPlaying(true)).catch(() => {
-        // 某些移动浏览器/低电量模式下仍可能拒绝自动播放，忽略错误
+        // 某些移动浏览器/低电量/省流量模式下仍可能拒绝自动播放，忽略错误
       });
     };
     tryPlay();
     // 视频就绪后（如首次缓冲未赶上）再尝试一次，确保优先轮播
     video.addEventListener('canplay', tryPlay, { once: true });
-    return () => video.removeEventListener('canplay', tryPlay);
+
+    // 兜底：安卓/iOS 在自动播放被完全拦截时，监听“首次用户交互”后启动播放
+    const onInteract = () => {
+      video.play().then(() => setPlaying(true)).catch(() => {});
+      window.removeEventListener('touchstart', onInteract);
+      window.removeEventListener('click', onInteract);
+      window.removeEventListener('scroll', onInteract);
+      window.removeEventListener('keydown', onInteract);
+    };
+    window.addEventListener('touchstart', onInteract, { once: true, passive: true });
+    window.addEventListener('click', onInteract, { once: true });
+    window.addEventListener('scroll', onInteract, { once: true, passive: true });
+    window.addEventListener('keydown', onInteract, { once: true });
+
+    return () => {
+      video.removeEventListener('canplay', tryPlay);
+      window.removeEventListener('touchstart', onInteract);
+      window.removeEventListener('click', onInteract);
+      window.removeEventListener('scroll', onInteract);
+      window.removeEventListener('keydown', onInteract);
+    };
   }, []);
 
   return (
@@ -36,7 +67,7 @@ export default function HeroSection() {
       />
       {/* Video Background（优先自动轮播） */}
       <video
-        ref={videoRef}
+        ref={setVideoRef}
         autoPlay
         muted
         loop
