@@ -1,18 +1,36 @@
+import { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Activity } from 'lucide-react';
 import heroVideo from '../assets/hero.mp4';
 import heroPoster from '../assets/hero-poster.jpg';
 
 export default function HeroSection() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    // iOS Safari 需要 muted 既作为 attribute 也作为 property 才真正允许自动播放
+    video.muted = true;
+    video.setAttribute('muted', '');
+    video.play().catch(() => {
+      // 某些移动浏览器/低电量模式下仍可能拒绝自动播放，忽略错误
+    });
+  }, []);
+
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-950 pt-20">
       {/* Video Background */}
       <video
+        ref={videoRef}
         autoPlay
         muted
         loop
         playsInline
+        preload="auto"
         poster={heroPoster}
+        disablePictureInPicture
+        disableRemotePlayback
         className="absolute inset-0 z-0 h-full w-full object-cover"
         aria-hidden="true"
       >
