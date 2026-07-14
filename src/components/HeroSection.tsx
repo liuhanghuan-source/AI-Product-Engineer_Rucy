@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Activity } from 'lucide-react';
 import heroVideo from '../assets/hero.mp4';
@@ -6,6 +6,7 @@ import heroPoster from '../assets/hero-poster.jpg';
 
 export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [playing, setPlaying] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -13,14 +14,27 @@ export default function HeroSection() {
     // iOS Safari 需要 muted 既作为 attribute 也作为 property 才真正允许自动播放
     video.muted = true;
     video.setAttribute('muted', '');
-    video.play().catch(() => {
-      // 某些移动浏览器/低电量模式下仍可能拒绝自动播放，忽略错误
-    });
+    const tryPlay = () => {
+      video.play().then(() => setPlaying(true)).catch(() => {
+        // 某些移动浏览器/低电量模式下仍可能拒绝自动播放，忽略错误
+      });
+    };
+    tryPlay();
+    // 视频就绪后（如首次缓冲未赶上）再尝试一次，确保优先轮播
+    video.addEventListener('canplay', tryPlay, { once: true });
+    return () => video.removeEventListener('canplay', tryPlay);
   }, []);
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-950 pt-20">
-      {/* Video Background */}
+      {/* 封面兜底层：视频未播放（加载中/自动播放被拒/加载失败）时显示，播放后淡出 */}
+      <img
+        src={heroPoster}
+        alt=""
+        aria-hidden="true"
+        className={`absolute inset-0 z-0 h-full w-full object-cover transition-opacity duration-700 ${playing ? 'opacity-0' : 'opacity-100'}`}
+      />
+      {/* Video Background（优先自动轮播） */}
       <video
         ref={videoRef}
         autoPlay
@@ -28,7 +42,8 @@ export default function HeroSection() {
         loop
         playsInline
         preload="auto"
-        poster={heroPoster}
+        onPlaying={() => setPlaying(true)}
+        onError={() => setPlaying(false)}
         disablePictureInPicture
         disableRemotePlayback
         className="absolute inset-0 z-0 h-full w-full object-cover"
