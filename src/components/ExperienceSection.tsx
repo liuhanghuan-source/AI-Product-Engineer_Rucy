@@ -161,7 +161,6 @@ export default function ExperienceSection() {
                 {/* Content Side */}
                 <div className={`${study.hideVisual ? 'p-8 md:p-12' : 'lg:col-span-7 p-8 md:p-12 lg:p-16'} flex flex-col justify-center`}>
                   <div className="flex items-center gap-4 mb-6">
-                    <span className="text-sm font-mono text-zinc-400 bg-zinc-100 px-3 py-1 rounded-md">{study.period}</span>
                     <span className="text-sm font-medium text-brand-blue">{study.role}</span>
                   </div>
                   
