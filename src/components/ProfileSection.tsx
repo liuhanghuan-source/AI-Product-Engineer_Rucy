@@ -79,7 +79,7 @@ export default function ProfileSection() {
                     </div>
                     <div className="flex items-center justify-center sm:justify-start gap-2 hover:text-zinc-900 transition-colors">
                       <Mail size={16} className="text-zinc-400" />
-                      <a href="mailto:liuhanghuan@qq.com?subject=你好%20刘航欢&body=你好，我想和你聊聊%20AI%20产品相关的话题。" className="text-sm font-medium hover:text-brand-blue transition-colors">Liuhanghuan@qq.com</a>
+                      <a href="mailto:liuhanghuan@qq.com" className="text-sm font-medium hover:text-brand-blue transition-colors">Liuhanghuan@qq.com</a>
                     </div>
                   </div>
                 </div>
