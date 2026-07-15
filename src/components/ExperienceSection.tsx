@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { LayoutGrid, ArrowRight, BarChart3, Zap, BrainCircuit, Database, Bot, Layers, FolderGit2, ShieldCheck, Workflow, Stethoscope, FileSearch, ArrowDownToLine } from 'lucide-react';
+import { ArrowRight, BarChart3, Zap, BrainCircuit, Database, Bot, Layers, FolderGit2, ShieldCheck, Workflow, Stethoscope, FileSearch, ArrowDownToLine } from 'lucide-react';
 
 const cases = [
   {
@@ -117,15 +117,6 @@ export default function ExperienceSection() {
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <div className="max-w-2xl">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="inline-flex items-center space-x-2 bg-white border border-zinc-200 px-3 py-1 rounded-md mb-6"
-            >
-              <LayoutGrid size={14} className="text-zinc-500" />
-              <span className="text-xs font-medium text-zinc-600 font-mono">CASE_STUDIES</span>
-            </motion.div>
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

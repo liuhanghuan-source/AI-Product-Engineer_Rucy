@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { useEffect, useRef } from 'react';
-import { Terminal } from 'lucide-react';
 
 // Simple particle network background
 const ParticleNetwork = () => {
@@ -110,15 +109,6 @@ export default function FutureVisionSection() {
 
       <div className="relative z-10 container mx-auto px-6">
         <div className="text-center mb-20">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center space-x-2 bg-zinc-900 border border-zinc-800 px-3 py-1 rounded-md mb-6"
-          >
-            <Terminal size={14} className="text-brand-blue" />
-            <span className="text-xs font-medium text-zinc-400 font-mono">TECH_RADAR</span>
-          </motion.div>
           <motion.h2 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}

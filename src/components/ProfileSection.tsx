@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { MapPin, Mail, Cpu, Code, Network, Glasses, Settings, Terminal, Activity, Gamepad2 } from 'lucide-react';
+import { MapPin, Mail, Cpu, Code, Network, Glasses, Settings, Activity, Gamepad2 } from 'lucide-react';
 
 const careerSteps = [
   {
@@ -50,7 +50,6 @@ export default function ProfileSection() {
                 <div className="w-2.5 h-2.5 rounded-full bg-amber-400"></div>
                 <div className="w-2.5 h-2.5 rounded-full bg-green-400"></div>
               </div>
-              <span className="ml-3 text-xs font-mono text-zinc-400">profile.json</span>
             </div>
 
             <div className="p-6 sm:p-8">
@@ -148,15 +147,9 @@ export default function ProfileSection() {
                 <div className="w-2.5 h-2.5 rounded-full bg-amber-400"></div>
                 <div className="w-2.5 h-2.5 rounded-full bg-green-400"></div>
               </div>
-              <span className="ml-3 text-xs font-mono text-zinc-400">career.log</span>
             </div>
 
             <div className="p-6 sm:p-8">
-              <div className="flex items-center gap-2 mb-6">
-                <Terminal size={14} className="text-zinc-400" />
-                <h3 className="text-xs font-bold text-zinc-500 font-mono tracking-[0.2em] uppercase">Career Trajectory</h3>
-              </div>
-
               {/* Vertical Timeline */}
               <div className="relative">
                 <div className="absolute left-[19px] top-3 bottom-3 w-px bg-gradient-to-b from-zinc-200 via-zinc-200 to-transparent"></div>
