@@ -125,7 +125,7 @@ export default function FutureVisionSection() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="text-xl text-zinc-400 font-light max-w-2xl mx-auto"
           >
-            系统持续运行，架构永不停止演进。欢迎连接，共同构建下一代 AI 基础设施。
+            以上是我当前重点关注的 AI 工作方式；仍在学习和实践中，也期待与同好交流。
           </motion.p>
         </div>
 
