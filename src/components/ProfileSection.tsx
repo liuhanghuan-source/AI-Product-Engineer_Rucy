@@ -57,15 +57,19 @@ export default function ProfileSection() {
               <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 items-center sm:items-center">
                 <img
                   src={`${import.meta.env.BASE_URL}avatar.png`}
-                  alt="Rucy"
+                  alt="刘航欢"
                   className="flex-shrink-0 w-28 h-28 sm:w-32 sm:h-32 rounded-2xl object-cover border-4 border-white shadow-lg"
                 />
                 <div className="flex-1 min-w-0 text-center sm:text-left space-y-4">
                   <div>
-                    <h2 className="text-3xl font-bold text-zinc-900">Rucy</h2>
+                    <h2 className="text-3xl font-bold text-zinc-900">刘航欢</h2>
                     <div className="text-sm text-brand-blue font-medium flex items-center justify-center sm:justify-start gap-2 mt-1">
                       <Cpu size={16} className="text-brand-blue" />
                       <span>AI Product Engineer</span>
+                    </div>
+                    <div className="mt-2 flex items-center justify-center sm:justify-start gap-1.5 text-xs text-zinc-500">
+                      <Activity size={14} className="text-zinc-400" />
+                      <span>1年+ 经验</span>
                     </div>
                   </div>
                   <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 text-zinc-500">
@@ -75,7 +79,7 @@ export default function ProfileSection() {
                     </div>
                     <div className="flex items-center justify-center sm:justify-start gap-2 hover:text-zinc-900 transition-colors">
                       <Mail size={16} className="text-zinc-400" />
-                      <a href="mailto:liuhanghuan@qq.com" className="text-sm font-medium hover:text-brand-blue transition-colors">Liuhanghuan@qq.com</a>
+                      <a href="mailto:liuhanghuan@qq.com?subject=你好%20刘航欢&body=你好，我想和你聊聊%20AI%20产品相关的话题。" className="text-sm font-medium hover:text-brand-blue transition-colors">Liuhanghuan@qq.com</a>
                     </div>
                   </div>
                 </div>
@@ -89,12 +93,26 @@ export default function ProfileSection() {
                     专注于 <span className="text-brand-blue">AI 应用</span>、<span className="text-emerald-600">智能体系统</span>开发，具备产品规划、技术方案设计以及项目落地经验，致力于探索 AI 与各项工作相结合的新型产品体验。
                   </p>
                 </div>
-                <div>
-                  <div className="text-xs text-zinc-400 font-mono mb-3">CURRENT_STACK</div>
-                  <div className="flex flex-wrap gap-2">
-                    <span className="text-[10px] font-mono bg-zinc-100 text-zinc-700 px-2 py-1 rounded border border-zinc-200">Workflow</span>
-                    <span className="text-[10px] font-mono bg-zinc-100 text-zinc-700 px-2 py-1 rounded border border-zinc-200">Multi-Agent</span>
-                    <span className="text-[10px] font-mono bg-zinc-100 text-zinc-700 px-2 py-1 rounded border border-zinc-200">Low-Code</span>
+                <div className="space-y-5">
+                  <div>
+                    <div className="text-xs text-zinc-400 font-mono mb-3">CURRENT_STACK</div>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="text-[10px] font-mono bg-zinc-100 text-zinc-700 px-2 py-1 rounded border border-zinc-200">Workflow</span>
+                      <span className="text-[10px] font-mono bg-zinc-100 text-zinc-700 px-2 py-1 rounded border border-zinc-200">Multi-Agent</span>
+                      <span className="text-[10px] font-mono bg-zinc-100 text-zinc-700 px-2 py-1 rounded border border-zinc-200">Low-Code</span>
+                    </div>
+                  </div>
+                  <div>
+                    <div className="text-xs text-zinc-400 font-mono mb-3">TECH_STACK</div>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="text-[10px] font-mono bg-zinc-100 text-zinc-700 px-2 py-1 rounded border border-zinc-200">React</span>
+                      <span className="text-[10px] font-mono bg-zinc-100 text-zinc-700 px-2 py-1 rounded border border-zinc-200">JavaScript</span>
+                      <span className="text-[10px] font-mono bg-zinc-100 text-zinc-700 px-2 py-1 rounded border border-zinc-200">TypeScript</span>
+                      <span className="text-[10px] font-mono bg-zinc-100 text-zinc-700 px-2 py-1 rounded border border-zinc-200">Node.js</span>
+                      <span className="text-[10px] font-mono bg-zinc-100 text-zinc-700 px-2 py-1 rounded border border-zinc-200">Flutter</span>
+                      <span className="text-[10px] font-mono bg-zinc-100 text-zinc-700 px-2 py-1 rounded border border-zinc-200">Unity</span>
+                      <span className="text-[10px] font-mono bg-zinc-100 text-zinc-700 px-2 py-1 rounded border border-zinc-200">MySQL</span>
+                    </div>
                   </div>
                 </div>
               </div>
